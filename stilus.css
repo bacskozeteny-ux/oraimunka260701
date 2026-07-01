@@ -1,9 +1,59 @@
 * {
     box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
+    margin: 0;
+    padding: 0;
 }
 
+body {
+    background: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+/* GRID */
+main {
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto;
+
+    display: grid;
+
+    /* 🔥 kisebb távolság */
+    gap: 5px;
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "h n n"
+        "as f ar";
+}
+
+/* BLOKKOK */
+header,
+nav,
+aside,
+footer,
+article {
+    height: 180px;
+    border-radius: 12px;
+    padding: 12px;
+
+    color: white;
+    font-size: 13px;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    background-size: cover;
+    background-position: center;
+
+    /* 🔥 élénkebb kép (kevesebb fehér overlay) */
+    background-color: rgba(255, 255, 255, 0.15);
+    background-blend-mode: lighten;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* AREÁK */
 header {
     grid-area: h;
     background-image: url(img/dandelion.jpg);
@@ -12,6 +62,11 @@ header {
 nav {
     grid-area: n;
     background-image: url(img/dand2.jpg);
+
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0;
+    /* 🔥 fontos */
 }
 
 aside {
@@ -19,21 +74,41 @@ aside {
     background-image: url(img/dand3.jpg);
 }
 
-article {
-    grid-area: ar;
-    background-image: url(img/dandy2.gif);
-}
-
 footer {
     grid-area: f;
     background-image: url(img/dandy.gif);
 }
 
-main {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas:
-        'h n n'
-        'as f ar'
-    ;
+article {
+    grid-area: ar;
+    background-image: url(img/dandy2.gif);
+}
+
+/* 🔥 TELJES SZÉLESSÉGŰ MENÜSÁV */
+.menu {
+    width: 100%;
+    /* ← végigér */
+    height: 25%;
+
+    background: rgba(20, 25, 45, 0.85);
+
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    padding-left: 20px;
+
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+/* MENÜ */
+.menu a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.menu a:hover {
+    color: white;
 }
